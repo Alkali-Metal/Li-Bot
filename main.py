@@ -22,4 +22,4 @@ async def on_message(message):
     parser.user(command, args[0:])
 #    parser.admin(command, args[0:])
 
-client.run('MjM2NjI2MTIzNDE5NTQ5Njk5.CuL2xg.NDRS6bdM0nHu1HQj0QP1uqVd8lA')
+client.run('TOKEN')
