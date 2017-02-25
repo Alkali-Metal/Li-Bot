@@ -1,6 +1,6 @@
 import importlib
 import discord
-import commands.command_reader as parser
+import functions.parser as parser
 
 client = discord.Client()
 
