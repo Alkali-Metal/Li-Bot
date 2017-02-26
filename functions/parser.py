@@ -5,9 +5,9 @@ import discord
 
 client = discord.Client()
 
-def user(command, *args, message=message):
+def user(command, *args, message):
     if command == "test":
-        handler(command, *args)
+        handler(command, args, message=message)
 
 """@client.event
 async def on_message(message):

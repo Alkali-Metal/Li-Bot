@@ -11,7 +11,7 @@ async def on_ready():
 
 """def update():
     if message.content.startswith("~"):
-        if message.author.id == :
+        if message.author.id == owner_id:
             await client.send_message(message.channel, "Updating the bot. :smile:")
             importlib.reload(parser)
         else:
@@ -20,7 +20,6 @@ async def on_ready():
 @client.event
 async def on_message(message):
     command, *args = message.content[1:].split()
-    print(message)
     parser.user(command, args, message=message)
 
 client.run(bot_token)

@@ -6,7 +6,7 @@ import discord
 #import functions.commands.fun as fun
 import functions.commands.test as test
 
-def handler(command, *args, message=message):
+def handler(command, *args, message):
     if command == "test":
         print("User command parsed")
-        test.run(message)
+        test.run(message=message)
