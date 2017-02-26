@@ -4,15 +4,9 @@ import discord
 #import functions.commands.random as random
 #import functions.commands.easter_eggs as EEC
 #import functions.commands.fun as fun
+import functions.commands.test as test
 
-def user(command, *args):
-    if command == "":
+def handler(command, *args, message=message):
+    if command == "test":
         print("User command parsed")
-
-def moderator(command, *args):
-    if command == "":
-        print("Moderator message parsed")
-
-def admin(command, *args):
-    if command == "":
-        print("Admin message Parsed")
+        test.run(message)
