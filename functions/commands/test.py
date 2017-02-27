@@ -1,7 +1,8 @@
-import discord
+#------------------------------------------------#
+#                                                #
+#     The response for the "test" command        #
+#                                                #
+#------------------------------------------------#
 
-client = discord.Client()
-
-def run(message):
-    #await client.send_message(message.channel, "test confirmed:tm:")
-    print("Success")
+def run():
+    return "Test confirmed:tm:"

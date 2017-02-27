@@ -5,50 +5,22 @@ import discord
 
 client = discord.Client()
 
-def user(command, *args, message):
-    if command == "test":
-        handler(command, args, message=message)
+def info(a_id, a_name, a_nickname, a_roles, s_id, s_name):
+    global author_id, author_name, author_nickname, server_id, server_name, author_roles
+    author_id = a_id
+    author_name = a_name
+    author_nickname = a_nickname
+    author_roles = a_roles
+    server_id = s_id
+    server_name = s_id
 
-"""@client.event
-async def on_message(message):
-    for role in message.author.roles:
-        user_roles_local = []
-        user_roles_local.append(role)
-    set(user_roles_local)
-
-    if user_roles_local.intersection(permissions.user_roles):
-        if message.content.startswith("~"):
-            print("User Parsing Complete")
-    if user_roles.intersection(permissions.moderator_roles):
-        if message.content.startswith("~"):
-            print("Moderator Parsing Complete")
-    if user_roles.intersection(permissions.admin_roles):
-        if message.content.startswith("~"):
-            print("Admin Parsing Complete")
-
-
-def handle(message):
-    command, *args = message.text.split()
-    if settings.admin_roles in message.author.roles:
-        return admin(command, *args)
-    elif settings.moderator_roles in message.author.roles:
-        return moderator(command, *args)
-    else:
-        return user(command, *args)
-
-handle(message)
-
-"""
-
-
-
-
-
-
-
-
-
-
-
-
-
+def main(command, *args, message):
+    permission_level = permissions.permission_level(command, author_roles)
+    if permission_level == "user":
+        return handler.user(command, args, server_id=server_id)
+    elif permission_level == "moderator":
+        return handler.moderator(command, args, server_id=server_id)
+    elif permission_level == "admin":
+        return handler.admin(command, args, server_id=server_id)
+    elif permission_level == "no permission":
+        return "You don't have access to that command"
