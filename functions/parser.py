@@ -5,6 +5,10 @@ import discord
 
 client = discord.Client()
 
+def command_type(command):
+    print(handler.type(command))
+    return handler.type(command)
+
 def info(a_id, a_name, a_nickname, a_roles, s_id, s_name):
     global author_id, author_name, author_nickname, server_id, server_name, author_roles
     author_id = a_id
@@ -17,10 +21,12 @@ def info(a_id, a_name, a_nickname, a_roles, s_id, s_name):
 def main(command, *args, message):
     permission_level = permissions.permission_level(command, author_roles)
     if permission_level == "user":
-        return handler.user(command, args, server_id=server_id)
+        return handler.user(command, args, server_id=server_id, author_id=author_id)
     elif permission_level == "moderator":
-        return handler.moderator(command, args, server_id=server_id)
+        return handler.moderator(command, args, server_id=server_id, author_id=author_id)
     elif permission_level == "admin":
-        return handler.admin(command, args, server_id=server_id)
+        return handler.admin(command, args, server_id=server_id, author_id=author_id)
     elif permission_level == "no permission":
         return "You don't have access to that command"
+    elif permission_level == "not a command":
+        return "That is not a valid command!"
