@@ -1,5 +1,5 @@
 periodic_help_message = """This is the command list for Li-Bot the commands are:
-'''!user  --  This adds the \"user\" role to whomever runs it, this is just a one-time command as it doesn't work if you try to run it more than once```
+```!user  --  This adds the \"user\" role to whomever runs it, this is just a one-time command as it doesn't work if you try to run it more than once```
 ```!random  --  main command for random things:
 !random object <List of things>  --  Randomly picks one item from the list (Separate the various items with a space
 !random shuffle <List of things>  --  Randomly shuffles the list and returns the shuffled version
