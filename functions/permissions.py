@@ -9,13 +9,15 @@ def permission_level(command, author_roles):
             return "user"
         else:
             return "no permission"
-    if command in config.moderator_commands:
+    elif command in config.moderator_commands:
         if config.moderator_roles.intersection(roles):
             return "moderator"
         else:
             return "no permission"
-    if command in config.admin_commands:
+    elif command in config.admin_commands:
         if config.admin_roles.intersection(roles):
             return "admin"
         else:
             return "no permission"
+    else:
+        return "not a command"
