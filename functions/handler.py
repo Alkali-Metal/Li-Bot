@@ -5,25 +5,16 @@
 #-------------------------------------------------#
 
 import discord
-import functions.commands.help as help
-import functions.commands.roll as roll
-import functions.commands.random as random
-import functions.commands.easter_eggs as EEC
-import functions.commands.fun as fun
-import functions.commands.test as test
+import functions.configs.command_config as commands
 
 
-def type(command):
-    type_of_command = command.info()
-    return type_of_command
+def user(command, *args):
+    if command in commands.all_commands:
+        print("main handler")
+        return commands.all_commands[command]()
+    elif command in commands.temmie_commands:
+        return commands.temmie_commands[command]()
 
-def user(command, *args, server_id, author_id):
-    if command == "test":
-        return test.run()
-    if command == "help":
-        return help.run(server_id=server_id)
-    if command == "randomdance":
-        return EEC.random_dance()
 
 #def moderator(command, *args):
 
