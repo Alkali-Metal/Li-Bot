@@ -1,6 +1,7 @@
 import functions.configs.permissions_config as config
 
 def permission_level(command, author_roles):
+    print("permission checker")
     roles = []
     for role in author_roles:
         roles.append(role.name)
