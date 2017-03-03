@@ -7,11 +7,12 @@
 
 #The default roles for general commands
 # Leave "@everyone" to allow everyone to access the default commands
-user_roles = {'@everyone'}
+user_roles = {'@everyone','user'}
 
 #The list of commands which the "user" permission
 # level can run
-user_commands = {'help','randomdance','test'}
+user_commands = {'help','test'}
+
 
 
 #The defualt roles for moderator commands
@@ -20,6 +21,7 @@ moderator_roles = {'owner','administrator','moderator','Admin'}
 #The list of commands which the "user" permission
 # level can run
 moderator_commands = {}
+
 
 
 #The default roles for Administrator commands
