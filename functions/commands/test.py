@@ -4,9 +4,7 @@
 #                                                #
 #------------------------------------------------#
 
-def run():
-    return "Test confirmed:tm:"
-
-def type():
-    print("type function")
-    return "text"
+def run(client, message, *args):
+    print(args)
+    actions = [client.send_message(message.channel, "Test confirmed:tm:")]
+    return actions

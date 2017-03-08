@@ -1,6 +1,6 @@
 import functions.commands.help_messages as messages
 
-def type():
+def Ctype():
     return "text"
 
 

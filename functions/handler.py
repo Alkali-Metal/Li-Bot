@@ -8,12 +8,11 @@ import discord
 import functions.configs.command_config as commands
 
 
-def user(command, *args):
+def user(client, message, command, *args):
     if command in commands.all_commands:
-        print("main handler")
-        return commands.all_commands[command]()
+        return commands.all_commands[command](client, message, args)
     elif command in commands.temmie_commands:
-        return commands.temmie_commands[command]()
+        return commands.temmie_commands[command](client, message, args)
 
 
 #def moderator(command, *args):

@@ -7,11 +7,11 @@
 
 #The default roles for general commands
 # Leave "@everyone" to allow everyone to access the default commands
-user_roles = {'@everyone','user'}
+user_roles = {'user'}
 
 #The list of commands which the "user" permission
 # level can run
-user_commands = {'help','test'}
+user_commands = {'test'}
 
 
 
@@ -30,3 +30,18 @@ admin_roles = {'owner','administrator'}
 #The list of commands which the "admin" permission
 # level can run
 admin_commands = {}
+
+
+
+all_subcommands = {
+"random":"dance",
+"random":"object",
+"random":"temmie",
+"random":"shuffle",
+"random":"number"
+}
+
+
+
+
+
