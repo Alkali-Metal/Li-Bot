@@ -1,10 +1,28 @@
-#------------------------------------------------#
-#                                                #
-#     The response for the "test" command        #
-#                                                #
-#------------------------------------------------#
+#-----------------------------------------------------------------------------#
+#                                                                             #
+#                                  Preface:                                   #
+#                                                                             #
+#                     The response for the "test" command                     #
+#                                                                             #
+#                                                                             #
+#                                                                             #
+#                                                                             #
+#-----------------------------------------------------------------------------#
 
-def run(client, message, *args):
-    print(args)
-    actions = [client.send_message(message.channel, "Test confirmed:tm:")]
+
+import discord
+from functions.configs.general_config import command_prefix
+
+
+help_message = discord.Embed(colour=0x00AA00,
+    title="{}test Help".format(command_prefix), description="""Checks to make
+sure the bot is online""")
+
+
+def run(client, message, command, *args):
+    actions = [client.send_message(message.channel, "Test Confirmed:tm:")]
+    return actions
+
+def help(client, message):
+    actions = [client.send_message(message.author, embed=help_message)]
     return actions

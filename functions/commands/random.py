@@ -1,81 +1,123 @@
+#-----------------------------------------------------------------------------#
+#
+#
+#
+#
+#
+#
+#
+#
+#-----------------------------------------------------------------------------#
+
+
+"IMPORTS"
+import discord
 import random
 
 
 
-#-----------------------------------------------------------------------------#
+high_chance_dances = [
+"<(^-^<)",
+"(>^-^)>"
+]
 
-def Ctype():
-    return "text"
+low_chance_dances = [
+"¯\_(ツ)_/¯",
+"┻━┻︵ ノ( ゜-゜ノ)"
+]
 
-#-----------------------------------------------------------------------------#
+dance_join = """
+"""
 
-def dance(*args):
-#    total_moves = 0
-#    while total_moves <= args[1]
-     print("HI!")
-#-----------------------------------------------------------------------------#
 
-def roll(*args):
-    if len(args) < 2:
-        if len(args) == 0:
-            return random.randint(1, 1000000)
-        elif len(args) == 1:
-            Sides = int(args[0])
-            if Sides > 1:
-                return random.randint(1, Sides)
-            else:
-                return "I can't roll a one sided thing!"
-    elif len(args) == 2:
-        Sides = int(args[2])
-        Amount = int(args[3])
-        if Amount == 1:
-            if Sides > 1:
-                return random.randint(1, Sides)
-            else:
-                return "I can't roll a one sided thing!"
-        elif Amount > 1:
-            if Sides > 1:
-                Rolls = []
-                for Number in range(Amount):
-                    Rolls.append(random.randint(1, Sides))
-                Total = str(sum(Rolls))
-                FRs = ', '.join([str(Roll) for Roll in Rolls])
-                roll_response = "**Total:** " + Total + "     **Rolls:** " + FRs
-                if len(CommandThing) <= 2000:
-                    return roll_response
-                elif len(roll_response) > 2000:
-                    roll_response2 = "**Total:** " + Total + "  **Rolls:** Unavailable"
-                    return roll_response2
-            else:
-                return "I can't roll a one sided thing!"
-    else:
-        return "Not enough arguments"
 
-#-----------------------------------------------------------------------------#
+not_enough_args = discord.Embed(title="Error", colour=0xFFA60D,
+description="Not enough arguments.")
+too_many_args = discord.Embed(title="Error", colour=0xFFA60D,
+description="Too many arguments.")
 
-def number(*args):
-    if len(args) == 2:
-        return random.randint(0, args[1])
-    elif len(args) < 2:
-        return "Not Enough Arguments"
-    elif len(args) > 2:
-        return "Too Many Arguments" 
 
-#-----------------------------------------------------------------------------#
+def roll(client, message, command, *args):
+    if "test" == "poatot":
+        print("D3")
 
-def object(*args):
-    return random.object(args[1:])
 
-#-----------------------------------------------------------------------------#
 
-def shuffle(*args):
+def object(client, message, command, *args):
+    actions = [client.send_message(message.channel, random.choice(args[1:]))]
+
+
+def shuffle(client, message, command, *args):
     random_shuffle = random.shuffle(args[1:])
-    return random_shuffle.join(", ")
+    actions = [client.send_message(message.channel, random_shuffle.join(", "))]
+    return actions
 
-#-----------------------------------------------------------------------------#
 
-def alkali():
-    alkalis = {"Lithium","Sodium","Potassium","Rubidium","Cesium","Francium"}
-    return random.choice(alkalis)
 
-#-----------------------------------------------------------------------------#
+def gif(client, message, command, *args):
+    actions = [client.send_message(message.channel, random.choice(GIFS))]
+    return actions
+
+
+def alkali(client, message, command, *args):
+    alkalis = ["Lithium","Sodium","Potassium","Rubidium","Cesium","Francium"]
+    actions = [client.send_message(message.channel, random.choice(alkalis))]
+    return actions
+
+
+
+"""def dance(client, message, command, *args):
+    if len(args) <= 2:
+        dance_moves = []
+        if len(args) == 2:
+            for number in range(0, int(args[1])):
+                print(number)
+                chances = random.randint(1, 10)
+                if chances <= 9:
+                    dance_moves.append(random.choice(high_chance_dances))
+                elif chances == 10:
+                    dance_moves.append(random.choice(low_chance_dances))
+            print(dance_moves)
+            final_dance = dance_join.join(dance_moves)
+            if len(final_dance) <= 2000:
+                actions = [client.send_message(message.channel, dance_join.join(dance_moves))]
+                return actions
+            else:
+                actions = [client.send_message(message.channel,
+                "Too much dance! (Message too long)")]
+                return actions
+        else:
+            for number in range(0, 5):
+                chances = random.randint(1, 10)
+                if chances <= 9:
+                    dance_moves.append(random.choice(high_chance_dances))
+                elif chances == 10:
+                    dance_moves.append(random.choice(low_chance_dances))
+            final_dance = dance_join.join(dance_moves)
+            if len(final_dance) <= 2000:
+                actions = [client.send_message(message.channel, dance_join.join(dance_moves))]
+                return actions
+            else:
+                actions = [client.send_message(message.channel,
+                "Too much dance! (Message too long)")]
+                return actions
+    elif len(args) > 2:
+        actions = [client.send_message(message.channel, embed=too_many_args)]"""
+
+
+
+
+
+
+GIFS = [
+"https://giphy.com/gifs/cat-lizard-12Zc0KnExOHsPe",
+"https://giphy.com/gifs/reactiongifs-dead-wedding-11eeAFI0e737OM",
+"https://giphy.com/gifs/vrFnQhh5VqsUw",
+"https://giphy.com/gifs/christmas-bbc-alex-kingston-Zsxh9Cbq7VCy4",
+"https://66.media.tumblr.com/a18a316e83f2118a64a7991869d7302a/tumblr_nba2nzm3jj1tyhayao1_500.gif",
+"https://giphy.com/gifs/water-heater-zionkBPammlJm",
+"https://giphy.com/gifs/jxkfRvvfI0mDm",
+"https://giphy.com/gifs/cute-sloth-slothilda-26xoplW0VhLLByrAY",
+"https://giphy.com/gifs/horse-applause-clapping-8RxCFgu88jUbe",
+"https://giphy.com/gifs/cat-lqtVC9GwItx6M"
+]
