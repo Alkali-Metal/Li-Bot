@@ -13,7 +13,7 @@
 "IMPORTS"
 import discord
 import random
-
+from functions.configs.general_config import command_prefix
 
 
 high_chance_dances = [
@@ -35,7 +35,8 @@ not_enough_args = discord.Embed(title="Error", colour=0xFFA60D,
 description="Not enough arguments.")
 too_many_args = discord.Embed(title="Error", colour=0xFFA60D,
 description="Too many arguments.")
-
+help_alkali = discord.Embed(title="{}random alkali".format(command_prefix),
+description="Returns a random alkali metal", colour=0x00AA00)
 
 def roll(client, message, command, *args):
     if "test" == "poatot":
@@ -63,6 +64,11 @@ def alkali(client, message, command, *args):
     alkalis = ["Lithium","Sodium","Potassium","Rubidium","Cesium","Francium"]
     actions = [client.send_message(message.channel, random.choice(alkalis))]
     return actions
+
+
+def alkali_help(client, message):
+    response = client.send_message(message.author, embed=help_alkali)
+    return response
 
 
 
