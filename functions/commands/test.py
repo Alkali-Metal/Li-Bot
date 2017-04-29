@@ -11,18 +11,19 @@
 
 
 import discord
-from functions.configs.general_config import command_prefix
+from functions.configs.user_configs.general_config import command_prefix
 
 
-help_message = discord.Embed(colour=0x00AA00,
-    title="{}test Help".format(command_prefix),
-    description="""Checks to make
-sure the bot is online""")
+help_message = discord.Embed(
+    colour=0x00AA00,
+    title="`{}test` Help".format(command_prefix),
+    description="""Checks to make sure the bot is online""")
 
 
 
-def run(client, message, *args):
-    actions = [client.send_message(message.channel, "Test Confirmed:tm:")]
+def run(client, message, command, *args):
+    print("MADE IT TO TEST.PY !!!!! HOORAY!")
+    actions = [client.send_message(message.author, "Test Confirmed:tm:")]
     return actions
 
 
