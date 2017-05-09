@@ -22,9 +22,7 @@ help_message = discord.Embed(
 
 
 def run(client, message, command, *args):
-    print("MADE IT TO TEST.PY !!!!! HOORAY!")
-    actions = [client.send_message(message.author, "Test Confirmed:tm:")]
-    return actions
+    return client.send_message(message.channel, "Test Confirmed:tm:")
 
 
 
