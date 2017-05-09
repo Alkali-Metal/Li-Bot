@@ -17,19 +17,19 @@ from functions.configs.developer_configs import command_config
 
 
 
-def main(client, message, lock, *args):
+def main(client, message, lock):
     if message.channel.is_private == False:
         if message.server.id in config.server_command_prefix:
             if message.content.startswith(config.server_command_prefix[
                 message.server.id]):
-                return handling(lock, client, message, *args)
+                return handling(lock, client, message)
         elif message.content.startswith(config.command_prefix):
-            return handling(lock, client, message, *args)
+            return handling(lock, client, message)
     else:
         if message.content.startswith(config.command_prefix):
-            return handling(lock, client, message, *args)
+            return handling(lock, client, message)
 
-def handling(lock, client, message, *args):
+def handling(lock, client, message):
     command, *args = message.content[1:].split()
     print(command, args)
     if message.channel.is_private == False:
@@ -60,6 +60,8 @@ def handling(lock, client, message, *args):
     elif permission_level == "restricted":
         return client.send_message(message.channel, "That command is restricted")
     elif permission_level == "null":
+        return None
+    elif permission_level== "locked":
         return None
     else:
         print("PANIC AND RUN!")
