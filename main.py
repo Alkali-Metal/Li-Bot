@@ -96,8 +96,9 @@ if config.bot_token == "":
 "ON READY"
 @client.event
 async def on_ready():
-    print('Logged in as: {user}'.format(user=client.user.name))
-    await client.change_presence(game=discord.game(name="with water"))
+    print("Logged in as: {user}\nID: {id}".format(
+        user=client.user.name,
+        id=client.user.id))
 
 
 "ON MESSAGE"
@@ -146,7 +147,6 @@ async def on_message(message):
             await client.send_message(message.channel,
             "Admin commands must be run from a server")
     else:
-        print("Initial Message Initialization")
         if config.respond_to_self == True:
             response = message_parser.main(client, message, config.locked)
             try:
