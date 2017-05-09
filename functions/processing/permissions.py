@@ -40,6 +40,7 @@ def public_checking(lock, client, message, command, *args):
                 else:
                     return "invalid command"
         else:
+            return "locked"
             print("Locked Server")
     elif lock == False:
         if command not in command_config.direct_only:
