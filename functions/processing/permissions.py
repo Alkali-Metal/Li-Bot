@@ -65,31 +65,22 @@ def public_checking(lock, client, message, command, *args):
 
 
 def private_checking(client, message, command, *args):
-    print("Start of permission checking")
     if message.author.id in config.owner_ids:
-        print("Author ID in the config list")
         if command in command_config.direct_only:
-            print("Command in direct only - allowed")
             return "allowed"
         elif command in command_config.non_biased:
-            print("Command in non-biased - allowed")
             return "allowed"
         elif command in command_config.server_only:
-            print("Command in server only - Not allowed")
-            return "server only"
-    else:
-        print("Author ID not in the config as an owner")
-        if command not in command_config.server_only:
-            print("Command in unbiased or direct only")
-            if command in permissions.user_commands:
-                print("command in user permission level - allowed")
-                return "allowed"
-            else:
-                print("command not in basic user level - Not allowed")
-                return "disallowed"
-        elif command in command_config.server_only:
-            print("Command is server only")
             return "server only"
         else:
-            print("Invalid command response")
+            return "restricted"
+    else:
+        if command not in command_config.server_only:
+            if command in permissions.user_commands:
+                return "allowed"
+            else:
+                return "disallowed"
+        elif command in command_config.server_only:
+            return "server only"
+        else:
             return "invalid command"
