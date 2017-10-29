@@ -1,0 +1,12 @@
+{
+  "allowed_roles":[
+    352313828958273537
+  ],
+  "roll":{
+    "default_dice": 1,
+    "min_sides": 1,
+    "max_sides": 100,
+    "min_dice": 1,
+    "max_dice": 100
+  }
+}
