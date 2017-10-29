@@ -1,0 +1,10 @@
+token: MjM2NjI2MTIzNDE5NTQ5Njk5.C-hCNw.AS0XeyV8wpOw-ANhzC3dy2ALjjw
+
+
+bot:
+  commands_enabled: true
+  commands_require_mention: false
+  commands_prefix: "~"
+  commands_allow_edit: true
+  plugins:
+    - plugins.voiceless_role
